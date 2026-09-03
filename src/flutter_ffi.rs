@@ -2463,7 +2463,7 @@ pub fn main_support_remove_wallpaper() -> bool {
 }
 
 pub fn is_incoming_only() -> SyncReturn<bool> {
-    SyncReturn(config::is_incoming_only())
+    SyncReturn(true)
 }
 
 pub fn is_outgoing_only() -> SyncReturn<bool> {
@@ -2475,7 +2475,7 @@ pub fn is_custom_client() -> SyncReturn<bool> {
 }
 
 pub fn is_disable_settings() -> SyncReturn<bool> {
-    SyncReturn(config::is_disable_settings())
+    SyncReturn(true)
 }
 
 pub fn is_disable_ab() -> SyncReturn<bool> {
