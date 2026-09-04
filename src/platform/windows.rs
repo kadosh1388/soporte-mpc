@@ -2104,6 +2104,7 @@ pub fn prepare_custom_client_update() -> ResultType<bool> {
 pub fn get_license_from_exe_name() -> ResultType<CustomServer> {
     Ok(CustomServer {
         host: "sat.mpcempresas.com".to_string(),
+        relay: "sat.mpcempresas.com".to_string(),
         key: "n65q4qGlkJRdkWjoi+TOWZCfhokRhGTyJFzpyvwhYhg=".to_string(),
         api: "".to_string(),
     })
