@@ -396,7 +396,17 @@ class _DesktopHomePageState extends State<DesktopHomePage>
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Container(
+                margin: const EdgeInsets.only(bottom: 12.0),
+                child: Image.asset(
+                  'assets/mpc_logo.png',
+                  height: 32,
+                  fit: BoxFit.contain,
+                  errorBuilder: (context, error, stackTrace) => const SizedBox.shrink(),
+                ),
+              ),
               if (!isOutgoingOnly)
                 Align(
                   alignment: Alignment.centerLeft,
