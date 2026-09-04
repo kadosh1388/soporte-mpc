@@ -254,28 +254,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
   }
 
   Widget buildPopupMenu(BuildContext context) {
-    final textColor = Theme.of(context).textTheme.titleLarge?.color;
-    RxBool hover = false.obs;
-    return InkWell(
-      onTap: DesktopTabPage.onAddSetting,
-      child: Tooltip(
-        message: translate('Settings'),
-        child: Obx(
-          () => CircleAvatar(
-            radius: 15,
-            backgroundColor: hover.value
-                ? Theme.of(context).scaffoldBackgroundColor
-                : Theme.of(context).colorScheme.background,
-            child: Icon(
-              Icons.more_vert_outlined,
-              size: 20,
-              color: hover.value ? textColor : textColor?.withOpacity(0.5),
-            ),
-          ),
-        ),
-      ),
-      onHover: (value) => hover.value = value,
-    );
+    return const SizedBox.shrink();
   }
 
   buildPasswordBoard(BuildContext context) {
@@ -401,10 +380,17 @@ class _DesktopHomePageState extends State<DesktopHomePage>
               Container(
                 margin: const EdgeInsets.only(bottom: 12.0),
                 child: Image.asset(
-                  'assets/mpc_logo.png',
+                  Theme.of(context).brightness == Brightness.dark
+                      ? 'assets/mpc_logo_dark.png'
+                      : 'assets/mpc_logo.png',
                   height: 32,
                   fit: BoxFit.contain,
-                  errorBuilder: (context, error, stackTrace) => const SizedBox.shrink(),
+                  errorBuilder: (context, error, stackTrace) => Image.asset(
+                    'assets/mpc_logo.png',
+                    height: 32,
+                    fit: BoxFit.contain,
+                    errorBuilder: (context, error, stackTrace) => const SizedBox.shrink(),
+                  ),
                 ),
               ),
               if (!isOutgoingOnly)
